@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+    <a class="navbar-brand" href="{% url 'shop:product_list' %}" style="color: #ffffff">Nectaroma Cafe</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          {% if request.user.is_authenticated %}
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">{{ request.user.username }}<b class="caret"></b></a></li>
+        <li><a href=""><span class="glyphicon glyphicon-log-out"></span>logout</a></li>
+            {% else %}
+        <li><a href="#" style="color: #ffffff"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+        <li><a href="#" style="color: #ffffff"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+         {% endif %}
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
